@@ -1,0 +1,28 @@
+﻿using mx.lpu2020.StudentDBmanagement.BL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace StudentDBWebApi.Controllers
+{
+    public class AccountLoginController : ApiController
+    {
+        Auth auth;
+        [Route("api/AccountLogin/Credential")]
+        [HttpGet]
+        public string Get(string name , string password)
+        {
+            auth = new Auth();
+            var authenticated = auth.UserAuthentication(name, password);
+            if (authenticated == true)
+            {
+                return "success";
+            }
+            return "Invalid";
+
+        }
+    }
+}

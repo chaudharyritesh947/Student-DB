@@ -1,0 +1,5 @@
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDB.common\bin\Debug\mx.lpu2020.StudentDB.common.dll
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDB.common\bin\Debug\mx.lpu2020.StudentDB.common.pdb
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDB.common\obj\Debug\mx.lpu2020.StudentDB.common.csprojResolveAssemblyReference.cache
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDB.common\obj\Debug\mx.lpu2020.StudentDB.common.dll
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDB.common\obj\Debug\mx.lpu2020.StudentDB.common.pdb

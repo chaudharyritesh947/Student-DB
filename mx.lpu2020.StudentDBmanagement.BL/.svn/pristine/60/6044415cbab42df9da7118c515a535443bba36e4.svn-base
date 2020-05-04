@@ -1,0 +1,152 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.Common;
+using System.Data;
+using MySql.Data.MySqlClient;
+
+//using System.Data.MySqlClient;
+using System.Data.SqlClient;
+
+
+namespace mx.lpu2020.StudentDBmanagement.DL
+{
+    public class DatabaseManager
+    {
+        private MySqlConnection con;
+        private MySqlCommand com;
+        public DatabaseManager()
+        {
+            try
+            {
+                string connectionString = "Data Source=localhost;Port = 3306;Initial Catalog=RK;User Id=root;password=''";
+                con = new MySqlConnection(connectionString);
+                con.Open();
+                com = con.CreateCommand();
+                com.CommandType = CommandType.Text;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        //It Should return list.
+        // But how will i Show them -> Grid View
+     /*   public DataTable RetrieveData(string QueryString)
+        {
+            try
+            {
+                com = new MySqlCommand(QueryString, con);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
+                mySqlDataAdapter.SelectCommand = com;
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                mySqlDataAdapter.Update(dataTable);
+
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+
+        }
+        Time 10:14 am commented 
+            we have commented that part which returns Datatable and uncommented that part which return DbDataReader.
+            and we will call the same from student repository.
+        */
+     
+        
+        public DbDataReader RetrieveData(string QueryString)
+        {
+            try
+            {
+                com.CommandText = QueryString;
+                DbDataReader DbReader = com.ExecuteReader();
+                return DbReader;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public int UpdateData(string QueryString)
+        {
+            try
+            {
+                com.CommandText = QueryString;                
+                return com.ExecuteNonQuery(); ;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        
+        public bool Authenticate(string username, string password)
+        {
+            try
+            {
+                int i = 0;
+                com.CommandText = string.Format("select * from login_credential where UserName = '{0}' and Password = '{1}'", username, password);
+                com.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(com);
+                da.Fill(dt);
+
+                i = Convert.ToInt32(dt.Rows.Count.ToString());
+                if (i == 0)
+                {
+                    return false;
+                    //label3.Text = "You have entered wrong user name and password !!";
+                }
+                else
+                {
+                    return true;
+                    // this.Hide();
+                    // Form2 fm = new Form2();
+                    //fm.Show();
+
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+    }
+}
+/*
+ 
+     
+     public bool ValidateUser(string username, string password)
+        {
+            int i = 0;
+            com.CommandText = string.Format("select * from login_credential where UserName = '{0}' and Password = '{1}'",username,password);
+            com.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(com);
+            da.Fill(dt);
+
+            i = Convert.ToInt32(dt.Rows.Count.ToString());
+            if (i == 0)
+            {
+                return false;
+                //label3.Text = "You have entered wrong user name and password !!";
+            }
+            else
+            {
+                return true;
+               // this.Hide();
+               // Form2 fm = new Form2();
+                //fm.Show();
+
+           }
+            
+        }*/

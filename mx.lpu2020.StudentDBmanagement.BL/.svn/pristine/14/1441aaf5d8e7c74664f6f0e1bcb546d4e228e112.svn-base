@@ -1,0 +1,140 @@
+﻿using mx.lpu2020.StudentDB.common;
+using mx.lpu2020.StudentDBmanagement.BL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace StudentDBWebApi.Controllers
+{
+    
+    public class DatabaseController : ApiController
+    {
+        private static readonly log4net.ILog log = LogHelper.GetLogger();
+        //Get data get karengey.
+        //post me data ko put karenegy.
+        //put me data ko update karengey.
+
+        StudentRepositery studentRepository = new StudentRepositery();
+
+        [Route("api/Database")]
+        [HttpGet]
+        public IEnumerable<Student> Get()
+        {
+            try
+            {
+                log.Info("get without parameters");
+                return studentRepository.Retrive();
+               
+            }
+            catch (Exception exception)
+            {
+                log.Error(exception.Message);
+                throw exception;
+            }
+        }
+
+        [Route("api/Database/id")]
+        [HttpGet]
+        public IEnumerable<Student> Get(int id)
+        {
+            try
+            {
+                log.Info("Into the get with id as a parameter");
+                return studentRepository.Retrive(id);
+            }
+            catch (Exception exception)
+            {
+                log.Error(exception.Message);
+                throw exception;
+            }
+        }
+
+        [Route("api/Database/index")]
+        [HttpGet]
+        public HttpResponseMessage Get(string index)
+        {
+            try
+            {
+                log.Info("into the with index as a parameter");
+                return Request.CreateResponse(studentRepository.Retrive(index));
+            }
+            catch (Exception exception)
+            {
+                log.Error(exception.Message);
+                throw exception;
+            }
+
+        }
+
+        [Route("api/Database/sortbycolumn")]
+        [HttpGet]
+        public HttpResponseMessage Get(string sortin, string column)
+        {
+            try
+            {
+                log.Info("into the get which takes two parameters");
+                return Request.CreateResponse(studentRepository.Retrive(sortin, column));
+            }
+            catch (Exception exception)
+            {
+                log.Error(exception.Message);
+                throw exception;
+            }
+        }
+
+        [Route("api/Database/sortbycolumnindex")]
+        [HttpGet]
+        public HttpResponseMessage Get(string index, string sortin, string column)
+        {
+            try
+            {
+                log.Info("into the get which takes three parameters");
+                return Request.CreateResponse(studentRepository.Retrive(index, sortin, column));
+            }
+            catch (Exception exception)
+            {
+                log.Error(exception.Message);
+                throw exception;
+            }
+        }
+
+        //In the body you have to provide five parameters, it will sync them in accordance with Class properties.
+        [Route("api/Database/Save")]
+        [HttpPost]
+        public IHttpActionResult Post([FromBody]Student student)
+        {
+            try
+            {
+                log.Info("into the post function");       
+                studentRepository.Save(student);
+                return Ok("Success");
+            }
+            catch (Exception exception)
+            {
+                log.Error(exception.Message);
+                throw exception;
+            }
+        }
+
+        [Route("api/Database/Update")]
+        [HttpPut]
+        public IHttpActionResult Put([FromBody]Student student)
+        {
+            try
+            {
+                log.Info("into the put function");
+                studentRepository.Update(student);
+                return Ok("Success");
+            }
+            catch (Exception exception)
+            {
+                log.Error(exception.Message);
+                throw exception;
+            }
+        }
+
+    }
+}

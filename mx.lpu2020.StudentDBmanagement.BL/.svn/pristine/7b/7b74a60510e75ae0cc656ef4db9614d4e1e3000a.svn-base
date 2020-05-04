@@ -1,0 +1,339 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mx.lpu2020.StudentDBmanagment.UI
+{
+    public partial class MdiMenuForm : Form
+    {
+        Add_Record addRecord;
+        ViewRecords viewRecords;
+
+        public MdiMenuForm()
+        {
+            InitializeComponent();
+        }       
+
+        private void MdiMenuForm_Load(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.CadetBlue;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+            //   MessageBox.Show("Please select the Menu for more option);
+        }     
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void addRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (addRecord == null)
+                {
+                    if (viewRecords != null)
+                    {
+                        viewRecords.Hide();
+                        viewRecords = null;
+                    }
+                    addRecord = new Add_Record();
+                    addRecord.MdiParent = this;
+                    addRecord.Show();
+                    addRecord.Location = new Point(70, 30);
+                }
+                else
+                {
+                    addRecord.Activate();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("PLEASE RESTART YOUR APPLICATION");
+            }
+        }
+
+        private void viewRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (viewRecords == null)
+                {
+                    if (addRecord != null)
+                    {
+
+                        addRecord.Hide();
+                        addRecord = null;
+                    }
+                    viewRecords = new ViewRecords();
+                    viewRecords.MdiParent = this;
+                    viewRecords.Show();
+                    viewRecords.Location = new Point(27, 25);
+                }
+                else
+                {
+                    viewRecords.Activate();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("PLEASE RESTART YOUR APPLICATION");
+            }
+        }
+        //EXIT BUTTON
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        //MENU TOOL STRIP
+        private void menuToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            try
+            {
+                menuToolStripMenuItem.BackColor = Color.Red;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void menuToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            try
+            {
+                menuToolStripMenuItem.ForeColor = Color.White;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void menuToolStripMenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                menuToolStripMenuItem.ForeColor = Color.Red;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+     
+        //ADD RECORD
+        private void addRecordsToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            try
+            {
+                addRecordsToolStripMenuItem.ForeColor = Color.Black;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+       
+        private void addRecordsToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            try
+            {
+                addRecordsToolStripMenuItem.ForeColor = Color.White;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void addRecordsToolStripMenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                addRecordsToolStripMenuItem.ForeColor = Color.Black;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+        private void addRecordsToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                addRecordsToolStripMenuItem.ForeColor = Color.Black;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        //VIEW RECORD
+        private void viewRecordsToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            try
+            {
+                viewRecordsToolStripMenuItem.ForeColor = Color.Black;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void viewRecordsToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            try
+            {
+                viewRecordsToolStripMenuItem.ForeColor = Color.White;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void viewRecordsToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                viewRecordsToolStripMenuItem.ForeColor = Color.Black;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void viewRecordsToolStripMenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                viewRecordsToolStripMenuItem.ForeColor = Color.Black;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+        //HIDE TOOL
+        private void hideToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            try
+            {
+                hideToolStripMenuItem.ForeColor = Color.White;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+
+        }
+
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (addRecord != null)
+                {
+                    addRecord.Hide();
+                    addRecord = null;
+                }
+                if (viewRecords != null)
+                {
+                    viewRecords.Hide();
+                    viewRecords = null;
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void hideToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            try
+            {
+                hideToolStripMenuItem.ForeColor = Color.Black;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void hideToolStripMenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                hideToolStripMenuItem.ForeColor = Color.Black;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            try
+            {
+                button1.BackColor = Color.Red;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            try
+            {
+                button1.BackColor = Color.LightCoral;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                button1.BackColor = Color.Red;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("APPLICATION ERROR");
+            }
+        }
+        //LOGOUT BUTTON
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            f1.Show();
+            this.Close();
+        }
+    }
+}

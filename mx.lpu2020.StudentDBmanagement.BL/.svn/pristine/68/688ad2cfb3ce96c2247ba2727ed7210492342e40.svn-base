@@ -1,0 +1,40 @@
+﻿using mx.lpu2020.StudentDBmanagement.BL;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mx.lpu2020.StudentDBmanagment.UI
+{
+    public partial class ViewRecords : Form
+    {
+        StudentRepositery studentRepository;
+        public ViewRecords()
+        {
+            InitializeComponent();
+        }
+
+        private void ViewRecords_Load(object sender, EventArgs e)
+        {
+            studentRepository = new StudentRepositery();
+            DataTable datatable = studentRepository.Retrive();
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = datatable;
+            //studentDataGridView.DataSource = bindingSource;
+            dataGridView1.DataSource = bindingSource;
+
+
+
+        }
+
+
+
+
+
+    }
+}

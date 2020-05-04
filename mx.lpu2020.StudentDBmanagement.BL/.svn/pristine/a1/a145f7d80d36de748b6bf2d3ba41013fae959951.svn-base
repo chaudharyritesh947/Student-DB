@@ -1,0 +1,47 @@
+﻿using mx.lpu2020.StudentDBmanagement.BL;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mx.lpu2020.StudentDBmanagment.UI
+{
+    public partial class ViewRecords : Form
+    {
+        StudentRepositery studentRepository;
+        public ViewRecords()
+        {
+            InitializeComponent();            
+        }
+
+        private void ViewRecords_Load(object sender, EventArgs e)
+        {
+            ViewAll();  
+        }
+        //Button For Searching against the against.
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            studentRepository = new StudentRepositery();
+            List<Student> studentList = studentRepository.Retrive(textBox1.Text);
+            dataGridView1.DataSource = studentList;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ViewAll();
+        }
+
+        public void ViewAll()
+        {
+            studentRepository = new StudentRepositery();
+            List<Student> studentList = studentRepository.Retrive();
+            dataGridView1.DataSource = studentList;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+﻿using mx.lpu2020.StudentDBmanagement.DL;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mx.lpu2020.StudentDBmanagement.BL
+{
+    public class StudentRepositery
+    {
+        DatabaseManager databaseManager;
+        public StudentRepositery()
+        {
+            databaseManager = new DatabaseManager();
+        }
+
+        public DataTable Retrive()
+        {
+           
+                
+                DataTable dataTable = databaseManager.RetrieveData("Select * from student");                           
+                return dataTable;
+          
+        }
+
+        public bool Save(Student student)
+        {
+            string FirstName = student.FirstName;
+            string LastName = student.LastName;
+            string Email = student.Email;
+            string City = student.City;
+            string Gender = student.Gender;
+            string QueryString = string.Format("Insert into Student(firstName,lastName,email,city,gender) Values('{0}','{1}','{2}','{3}','{4}')", FirstName, LastName, Email, City, Gender);
+            int row_count = databaseManager.UpdateData(QueryString);
+            if (row_count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+    }
+}

@@ -1,0 +1,207 @@
+﻿using mx.lpu2020.StudentDBmanagement.DL;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mx.lpu2020.StudentDBmanagement.BL
+{
+    public class StudentRepositery
+    {
+        DatabaseManager databaseManager;
+        public StudentRepositery()
+        {
+            try
+            {
+                databaseManager = new DatabaseManager();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+/*
+        public DataTable Retrive()
+        {
+            try
+            {
+                DataTable dataTable = databaseManager.RetrieveData("Select * from student");
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        10:17 am commented this part as this was returing the Datatable.
+            it's newer version is down there.
+             */
+    
+        public List<Student> Retrive()
+        {
+            List<Student> StudentRecord = new List<Student>();
+            DbDataReader DbDataReader = databaseManager.RetrieveData("Select * from student");
+
+            while (DbDataReader.Read())
+            {
+                Student student = new Student
+                {
+                    FirstName = DbDataReader.GetString(0),
+                    LastName = DbDataReader.GetString(1),
+                    Email = DbDataReader.GetString(2),
+                    City = DbDataReader.GetString(3),
+                    Gender = DbDataReader.GetString(4),
+                    id = DbDataReader.GetString(5),
+                };
+                StudentRecord.Add(student);
+            }
+
+            return StudentRecord;
+        }
+
+        public List<Student> Retrive(int id)
+        {
+            List<Student> StudentRecord = new List<Student>();
+         //   var ID =id + "";
+            DbDataReader DbDataReader = databaseManager.RetrieveData(string.Format("Select * from student where id = '{0}'",id));
+
+            while (DbDataReader.Read())
+            {
+                Student student = new Student
+                {
+                    FirstName = DbDataReader.GetString(0),
+                    LastName = DbDataReader.GetString(1),
+                    Email = DbDataReader.GetString(2),
+                    City = DbDataReader.GetString(3),
+                    Gender = DbDataReader.GetString(4),
+                    id = DbDataReader.GetString(5),
+                };
+                StudentRecord.Add(student);
+            }
+
+            return StudentRecord;
+        }
+
+        /*       SELECT productName, productline
+FROM products
+WHERE MATCH(productName)
+AGAINST('Truck' IN BOOLEAN MODE )
+*/
+
+        public List<Student> Retrive(string searchIndex)
+        {
+            List<Student> StudentRecord = new List<Student>();
+            string QueryString = string.Format("Select firstname, lastname, email, city, gender,id from student where match( lastname,firstname,email,city, gender,id) against ('{0}*' in boolean MODE)", searchIndex);
+            //SELECT * FROM student WHERE firstname,lastname,email,city,gender LIKE '{0}',searchIndex
+            // SELECT * FROM student WHERE MATCH(firstname,lastname,email,city,gender) AGAINST('{0}' IN NATURAL LANGUAGE MODE)
+            DbDataReader DbDataReader = databaseManager.RetrieveData(QueryString);
+            while (DbDataReader.Read())
+            {
+                Student student = new Student
+                {
+                    FirstName = DbDataReader.GetString(0),
+                    LastName = DbDataReader.GetString(1),
+                    Email = DbDataReader.GetString(2),
+                    City = DbDataReader.GetString(3),
+                    Gender = DbDataReader.GetString(4),
+                    id = DbDataReader.GetString(5),
+                };
+                StudentRecord.Add(student);
+            }
+            return StudentRecord;
+        }
+
+        public List<Student> Retrive(string sortin, string column)
+        {
+            List<Student> StudentRecord = new List<Student>();
+            string QueryString = "select * from student order by " + column+" "+sortin;                              
+            DbDataReader DbDataReader = databaseManager.RetrieveData(QueryString);
+            while (DbDataReader.Read())
+            {
+                Student student = new Student
+                {
+                    FirstName = DbDataReader.GetString(0),
+                    LastName = DbDataReader.GetString(1),
+                    Email = DbDataReader.GetString(2),
+                    City = DbDataReader.GetString(3),
+                    Gender = DbDataReader.GetString(4),
+                    id = DbDataReader.GetString(5),
+                };
+                StudentRecord.Add(student);
+            }
+            return StudentRecord;
+        }
+
+        public List<Student> Retrive(int id, string sortingOrder, string text)
+        {
+            string Query = string.Format("Select * from student where id = '{0}' order by ", id);
+            Query += " order by " + text + " " + sortingOrder;
+            List<Student> StudentRecord = new List<Student>();
+           // string QueryString = "select * from student order by " + column + " " + sortin;
+            DbDataReader DbDataReader = databaseManager.RetrieveData(Query);
+            while (DbDataReader.Read())
+            {
+                Student student = new Student
+                {
+                    FirstName = DbDataReader.GetString(0),
+                    LastName = DbDataReader.GetString(1),
+                    Email = DbDataReader.GetString(2),
+                    City = DbDataReader.GetString(3),
+                    Gender = DbDataReader.GetString(4),
+                    id = DbDataReader.GetString(5),
+                };
+                StudentRecord.Add(student);
+            }
+            return StudentRecord;
+
+        }
+
+        public bool Save(Student student)
+        {
+            try
+            {
+                string FirstName = student.FirstName;
+                string LastName = student.LastName;
+                string Email = student.Email;
+                string City = student.City;
+                string Gender = student.Gender;
+                string QueryString = string.Format("Insert into Student(firstName,lastName,email,city,gender) Values('{0}','{1}','{2}','{3}','{4}')", FirstName, LastName, Email, City, Gender);
+                int row_count = databaseManager.UpdateData(QueryString);
+                if (row_count > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public List<Student> Retrive(string text1, string sortingOrder, string text2)
+        {
+            List<Student> StudentRecord = new List<Student>();          
+            string query = string.Format("Select firstname, lastname, email, city, gender,id from student where match( lastname,firstname,email,city, gender,id) against ('{0}*' in boolean MODE)  order by ", text1);
+            query += text2 + " " + sortingOrder;
+            DbDataReader DbDataReader = databaseManager.RetrieveData(query);
+            while (DbDataReader.Read())
+            {
+                Student student = new Student
+                {
+                    FirstName = DbDataReader.GetString(0),
+                    LastName = DbDataReader.GetString(1),
+                    Email = DbDataReader.GetString(2),
+                    City = DbDataReader.GetString(3),
+                    Gender = DbDataReader.GetString(4),
+                    id = DbDataReader.GetString(5),
+                };
+                StudentRecord.Add(student);
+            }
+            return StudentRecord;
+        }
+    }
+}

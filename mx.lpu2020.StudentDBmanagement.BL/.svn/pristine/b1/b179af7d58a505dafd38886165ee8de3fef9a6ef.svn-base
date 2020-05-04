@@ -1,0 +1,79 @@
+﻿using mx.lpu2020.StudentDBmanagement.BL;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mx.lpu2020.StudentDBmanagment.UI
+{
+    public partial class AddFields : Form
+    {
+        StudentRepositery studentRepositery;
+        public AddFields()
+        {
+
+            InitializeComponent();
+            studentRepositery = new StudentRepositery();
+        }
+        //FOR ADD FIELDS BUTTON...
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBox1.Text == "" || textBox1.Text == "")
+                {
+                    MessageBox.Show("Please fill out the field name and field type ");
+                }
+                else
+                {
+                    studentRepositery = new StudentRepositery();
+                    var Altered = studentRepositery.Alter(comboBox1.Text, textBox1.Text);
+                    if (Altered)
+                    {//  int result = Int32.Parse(input);
+                        MessageBox.Show("Column added successfully");
+                        label4.Text = "" + studentRepositery.GetNumberOfColumns();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Some Error has occured ");
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("INVALID OR MALICIOUS ATTEMPT");
+            }
+           
+        }
+
+        private void AddFields_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                label4.Text = "" + studentRepositery.GetNumberOfColumns();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("SERVER NOT RESPONDING");
+            }
+        }
+        //HERE LABEL ONCLICK EVENT 
+        private void label6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("SOMETHING WENT WROMG");
+            }
+        }
+
+    }
+}

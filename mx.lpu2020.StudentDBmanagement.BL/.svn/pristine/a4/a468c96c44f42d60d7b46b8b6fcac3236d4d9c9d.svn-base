@@ -1,0 +1,217 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mx.lpu2020.StudentDBmanagment.UI
+{
+    public partial class MdiMenuForm : Form
+    {
+        public MdiMenuForm()
+        {
+            InitializeComponent();
+        }
+        Add_Record addRecord;
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        ViewRecords viewRecords;
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void MdiMenuForm_Load(object sender, EventArgs e)
+        {
+            Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.CadetBlue;
+         //   MessageBox.Show("Please select the Menu for more option);
+        }
+
+        private void MdiMenuForm_OnClick(object sender , EventArgs e)
+        {
+
+            MessageBox.Show("PLease use the menu button for more options");
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void addRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (addRecord == null)
+                {
+                    if (viewRecords != null)
+                    {
+                        viewRecords.Hide();
+                        viewRecords = null;
+                    }
+                    addRecord = new Add_Record();
+                    addRecord.MdiParent = this;
+                    addRecord.Show();
+                }
+                else
+                {
+                    addRecord.Activate();
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message);
+            }
+        }
+
+        private void viewRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (viewRecords == null)
+                {
+                    if (addRecord != null)
+                    {
+
+                        addRecord.Hide();
+                        addRecord = null;
+                    }
+                    viewRecords = new ViewRecords();
+                    viewRecords.MdiParent = this;
+                    viewRecords.Show();
+                }
+                else
+                {
+                    viewRecords.Activate();
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message);
+            }
+        }
+        //EXIT BUTTON
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void menuToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            menuToolStripMenuItem.BackColor = Color.Red;
+        }
+
+        private void menuToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
+        {
+          
+        }
+
+        private void menuToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            //menuToolStripMenuItem.BackColor = Color.Red;
+            menuToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void menuToolStripMenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            menuToolStripMenuItem.ForeColor = Color.Red;
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void addRecordsToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            addRecordsToolStripMenuItem.ForeColor = Color.Black;
+        }
+
+       
+
+        private void addRecordsToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            addRecordsToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void addRecordsToolStripMenuItem_ForeColorChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addRecordsToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
+        {
+            addRecordsToolStripMenuItem.ForeColor = Color.Black;
+        }
+        private void viewRecordsToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            viewRecordsToolStripMenuItem.ForeColor = Color.Black;
+        }
+
+        private void viewRecordsToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            viewRecordsToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void hideToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            hideToolStripMenuItem.ForeColor = Color.White;
+        }
+
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (addRecord != null)
+            {
+                addRecord.Hide();
+                addRecord = null;
+            }
+            if (viewRecords != null)
+            {
+                viewRecords.Hide();
+                viewRecords = null;
+            }
+        }
+
+        private void hideToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            hideToolStripMenuItem.ForeColor = Color.Black;
+        }
+
+        private void hideToolStripMenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            hideToolStripMenuItem.ForeColor = Color.Black;
+        }
+
+        private void viewRecordsToolStripMenuItem_MouseUp(object sender, MouseEventArgs e)
+        {
+            viewRecordsToolStripMenuItem.ForeColor = Color.Black;
+        }
+
+        private void addRecordsToolStripMenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            addRecordsToolStripMenuItem.ForeColor = Color.Black;
+        }
+
+        private void viewRecordsToolStripMenuItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            viewRecordsToolStripMenuItem.ForeColor = Color.Black;
+        }
+    }
+}

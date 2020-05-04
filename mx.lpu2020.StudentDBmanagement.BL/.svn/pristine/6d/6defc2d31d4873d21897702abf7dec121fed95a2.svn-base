@@ -1,0 +1,51 @@
+﻿using mx.lpu2020.StudentDBmanagement.DL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mx.lpu2020.StudentDBmanagement.BL
+{
+  public class Auth
+    {
+        ///
+        /// For authtentication purposes.
+        ///
+        DatabaseManager databaseManager;
+        public Auth()
+        {
+            try
+            {
+                databaseManager = new DatabaseManager();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public bool UserAuthentication(string username, string password)
+        {
+            try
+            {
+                if (databaseManager.Authenticate(username, password))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+
+    }
+}

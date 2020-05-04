@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mx.lpu2020.StudentDBmanagement.BL
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Validation v = new Validation();
+            StudentRepositery sr = new StudentRepositery();
+            sr.Retrive("asc","firstname");
+            Console.ReadKey();
+        }
+    }
+}

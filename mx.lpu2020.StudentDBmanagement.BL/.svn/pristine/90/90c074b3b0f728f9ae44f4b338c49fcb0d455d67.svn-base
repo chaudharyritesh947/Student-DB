@@ -1,0 +1,189 @@
+﻿using mx.lpu2020.StudentDBmanagement.BL;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mx.lpu2020.StudentDBmanagment.UI
+{
+    public partial class ViewRecords : Form
+    {
+        StudentRepositery studentRepository;
+        Validation validation;
+        public ViewRecords()
+        {
+            InitializeComponent();
+            validation = new Validation();
+            studentRepository = new StudentRepositery();
+        }
+
+        private void ViewRecords_Load(object sender, EventArgs e)
+        {
+            ViewAll();  
+        }
+        //Button For Searching
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                studentRepository = new StudentRepositery();
+                //Text validation is necessary here also.
+                List<Student> studentList;
+                if (string.IsNullOrWhiteSpace(comboBox3.Text))
+                {
+                    MessageBox.Show("Please select the your way of searching.");
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(textBox1.Text)) {
+                    MessageBox.Show("Please select type the key you want to search");
+                }
+                else if (comboBox3.Text.Equals("ID"))
+                {
+                    int id = Int32.Parse(textBox1.Text);
+                    studentList = studentRepository.Retrive(id);
+                    dataGridView1.DataSource = studentList;
+                }
+                else if (comboBox3.Text.Equals("KEYWORD"))
+                {
+
+                    int i;
+                    bool bNum = int.TryParse(textBox1.Text, out i);
+                    if (bNum == true)
+                    {
+                        //textbox integer hai toh gadbad hai.
+                        MessageBox.Show("Invalid Keyword, you can not use Numbers here");
+                    }
+                    else
+                    {
+                        studentList = studentRepository.Retrive(textBox1.Text);
+                        dataGridView1.DataSource = studentList;
+                    }
+                }
+              
+                
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show("Invalid or Malicious attempt");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ViewAll();
+        }
+
+        public void ViewAll()
+        {
+            studentRepository = new StudentRepositery();
+            List<Student> studentList = studentRepository.Retrive();
+            dataGridView1.DataSource = studentList;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.IsCurrentCellDirty)
+            {
+                dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+        private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+           
+        }
+        //Button for performning the sort operation. It Contains the Functionality of Go button. 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Student> studentList;
+                studentRepository = new StudentRepositery();
+                if(string.IsNullOrWhiteSpace(comboBox3.Text) && string.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    string SortingOrder = comboBox1.Text.Equals("Ascending Order") ? " ASC " : " DESC ";
+
+                    if (string.IsNullOrEmpty(comboBox2.Text) || string.IsNullOrWhiteSpace(comboBox2.Text))
+                    {
+                        comboBox1.Text = "Descending order";
+                        comboBox2.Text = "firstname";
+                    }
+                    studentList = studentRepository.Retrive(SortingOrder, comboBox2.Text);
+                    dataGridView1.DataSource = studentList;
+
+                }
+                else if (!string.IsNullOrWhiteSpace(comboBox3.Text))
+                {
+
+                    if (string.IsNullOrWhiteSpace(textBox1.Text))
+                    {
+                        MessageBox.Show("Please type in the keyword/Id you want to search ");
+                    }
+                    else if (comboBox3.Text.Equals("ID"))
+                    {
+                        string SortingOrder = comboBox1.Text.Equals("Ascending Order") ? " ASC " : " DESC ";
+
+                        if (string.IsNullOrEmpty(comboBox2.Text) || string.IsNullOrWhiteSpace(comboBox2.Text))
+                        {
+                            comboBox1.Text = "Descending order";
+                            comboBox2.Text = "firstname";
+                        }
+                        int id = Int32.Parse(textBox1.Text);
+
+                        //I have to work on this
+                        studentList = studentRepository.Retrive(id,SortingOrder,comboBox2.Text);
+                        dataGridView1.DataSource = studentList;
+                    }
+                    else if (comboBox3.Text.Equals("KEYWORD"))
+                    {
+                        int i;
+                        bool bNum = int.TryParse(textBox1.Text, out i);
+                        if (bNum == true)
+                        {
+                            //textbox integer hai toh gadbad hai.
+                            MessageBox.Show("Invalid Keyword, you can not use Numbers here");
+                        }
+                        else
+                        {
+                            string SortingOrder = comboBox1.Text.Equals("Ascending Order") ? " ASC " : " DESC ";
+
+                            if (string.IsNullOrEmpty(comboBox2.Text) || string.IsNullOrWhiteSpace(comboBox2.Text))
+                            {
+                                comboBox1.Text = "Descending order";
+                                comboBox2.Text = "firstname";
+                            }
+
+                            //I have to work on thos
+                            studentList = studentRepository.Retrive(textBox1.Text, SortingOrder, comboBox2.Text);
+                            dataGridView1.DataSource = studentList;
+                        }
+
+                        
+                    }
+
+                }
+
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show("invalid or malicious attempt");
+            }
+        }
+        //Functionality for Clear All button.
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //3 combo box hai.
+            //1 textbox hai.
+
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+            comboBox3.Text = "";
+            textBox1.Text = "";
+
+        }
+    }
+}

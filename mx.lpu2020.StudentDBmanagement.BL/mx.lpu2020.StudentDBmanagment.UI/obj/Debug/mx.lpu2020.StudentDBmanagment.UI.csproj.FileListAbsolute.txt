@@ -1,0 +1,30 @@
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDBmanagment.UI.exe.config
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDBmanagment.UI.exe
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDBmanagment.UI.pdb
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\MySql.Data.dll
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\Google.Protobuf.dll
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\BouncyCastle.Crypto.dll
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDBmanagement.BL.pdb
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDBmanagement.DL.pdb
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\MySql.Data.xml
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\Google.Protobuf.xml
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.csprojResolveAssemblyReference.cache
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.Form1.resources
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.Properties.Resources.resources
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.csproj.GenerateResource.Cache
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.exe
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.pdb
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.MdiMenuForm.resources
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.Add_Record.resources
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.ViewRecords.resources
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDBmanagement.DL.dll
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.WelcomeForm.resources
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.AddFields.resources
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDBmanagement.BL.dll
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\log4net.dll
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\log4net.xml
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDB.common.dll
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDB.common.pdb
+D:\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\bin\Debug\mx.lpu2020.StudentDBmanagment.UI.exe.config
+D:\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.exe
+D:\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagment.UI\obj\Debug\mx.lpu2020.StudentDBmanagment.UI.pdb

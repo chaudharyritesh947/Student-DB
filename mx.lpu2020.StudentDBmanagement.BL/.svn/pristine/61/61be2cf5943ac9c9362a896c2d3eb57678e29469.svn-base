@@ -1,0 +1,74 @@
+﻿using mx.lpu2020.StudentDB.common;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mx.lpu2020.StudentDBmanagment.UI
+{
+    public partial class WelcomeForm : Form
+    {
+
+        private static readonly log4net.ILog log = LogHelper.GetLogger();
+
+        public WelcomeForm()
+        {
+            try
+            {
+                log.Info("into the welcomeform constructer");
+                InitializeComponent();
+                log.Info("out of the welcomeform constructer");
+            }
+            catch (Exception e)
+            {
+                log.Error(e.Message);
+            }
+        }
+
+        private void WelcomeForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                log.Info("Into the load function of welcomeform ");
+                timer1.Start();
+                log.Info("out of load function of welcomeform");
+            }
+            catch (Exception e1)
+            {
+                log.Error(e1.Message);
+                MessageBox.Show("Application Error");
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                log.Info("into the timer tick function");
+                pictureBox1.Width += 50;
+                if (pictureBox1.Width >= 530)
+                {
+                    Thread.Sleep(1100);
+                    timer1.Stop();
+                    Form1 f1 = new Form1();
+                    f1.Show();
+                    this.Hide();
+                }
+                log.Info("out of the timer tick function");
+
+            }
+            catch (Exception e1)
+            {
+                log.Error(e1.Message);
+                MessageBox.Show("Application Error");
+            }
+
+        }
+    }
+}

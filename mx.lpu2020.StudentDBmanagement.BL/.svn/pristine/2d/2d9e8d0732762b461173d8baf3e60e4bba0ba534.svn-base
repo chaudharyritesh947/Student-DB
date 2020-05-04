@@ -1,0 +1,83 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.Common;
+using System.Data;
+using MySql.Data.MySqlClient;
+
+//using System.Data.MySqlClient;
+using System.Data.SqlClient;
+
+
+namespace mx.lpu2020.StudentDBmanagement.DL
+{
+    public class DatabaseManager
+    {
+        private MySqlConnection con;
+        private MySqlCommand com;
+        public DatabaseManager()
+        {
+            string connectionString = "Data Source=localhost;Port = 3306;Initial Catalog=RK;User Id=root;password=''";
+            con = new MySqlConnection(connectionString);
+            con.Open(); 
+            com = con.CreateCommand();
+            com.CommandType = CommandType.Text;
+        }
+
+
+        public DataTable RetrieveData(string QueryString)
+        {
+            MySqlCommand cmd = new MySqlCommand(QueryString, con);
+            MySqlDataAdapter sda = new MySqlDataAdapter();
+            sda.SelectCommand = cmd;
+            DataTable dataTable = new DataTable();
+            sda.Fill(dataTable);
+            sda.Update(dataTable);
+         
+            return dataTable;           
+            
+        }
+
+
+        public int UpdateData(string QueryString)
+        {
+            try
+            {
+                com.CommandText = QueryString;                
+                return com.ExecuteNonQuery(); ;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public bool Authenticate(string username, string password)
+        {
+            int i = 0;
+            com.CommandText = string.Format("select * from login_credential where UserName = '{0}' and Password = '{1}'", username, password);
+            com.ExecuteNonQuery();
+            DataTable datatable = new DataTable();
+            MySqlDataAdapter sqlAdapter = new MySqlDataAdapter(com);
+            sqlAdapter.Fill(datatable);
+
+            i = Convert.ToInt32(datatable.Rows.Count.ToString());
+            if (i == 0)
+            {
+                return false;               
+            }
+            else
+            {
+                return true;                
+            }
+
+        }
+
+
+   
+
+    }
+}

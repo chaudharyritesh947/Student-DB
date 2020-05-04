@@ -1,0 +1,14 @@
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\mx.lpu2020.StudentDBmanagement.DL.pdb
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\BouncyCastle.Crypto.dll
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\Google.Protobuf.dll
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\MySql.Data.dll
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\Google.Protobuf.xml
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\MySql.Data.xml
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\obj\Debug\mx.lpu2020.StudentDBmanagement.DL.csprojResolveAssemblyReference.cache
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\obj\Debug\mx.lpu2020.StudentDBmanagement.DL.pdb
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\mx.lpu2020.StudentDBmanagement.DL.dll
+c:\users\ritesh.kumar\documents\visual studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\obj\Debug\mx.lpu2020.StudentDBmanagement.DL.dll
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\log4net.dll
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\log4net.xml
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\mx.lpu2020.StudentDB.common.dll
+C:\Users\Ritesh.kumar\Documents\Visual Studio 2015\Projects\WebProjects\mx.lpu2020.StudentDBmanagement.BL\mx.lpu2020.StudentDBmanagement.DL\bin\Debug\mx.lpu2020.StudentDB.common.pdb

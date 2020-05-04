@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace mx.lpu2020.StudentDBmanagment.UI
+{
+    public partial class MdiMenuForm : Form
+    {
+        public MdiMenuForm()
+        {
+            InitializeComponent();
+        }
+        Add_Record addRecord;
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (addRecord == null)
+            {
+                addRecord = new Add_Record();
+                addRecord.MdiParent = this;
+                addRecord.Show();
+            }
+            else
+            {
+                addRecord.Activate();
+            }
+        }
+        ViewRecords viewRecords;
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (viewRecords == null)
+            {
+                viewRecords = new ViewRecords();
+                viewRecords.MdiParent = this;
+                viewRecords.Show();
+            }
+            else {
+                viewRecords.Activate();
+            }
+        }
+
+        private void MdiMenuForm_Load(object sender, EventArgs e)
+        {
+            Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.CadetBlue;
+        }
+    }
+}

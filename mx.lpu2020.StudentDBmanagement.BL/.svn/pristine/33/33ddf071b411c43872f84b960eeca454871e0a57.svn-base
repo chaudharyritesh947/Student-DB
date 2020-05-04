@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mx.lpu2020.StudentDBmanagement.BL
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Validation v = new Validation();
+            Console.WriteLine(v.IsMaliciousAttempt("abcd989", "nks's98"));
+            Console.ReadKey();
+        }
+    }
+}

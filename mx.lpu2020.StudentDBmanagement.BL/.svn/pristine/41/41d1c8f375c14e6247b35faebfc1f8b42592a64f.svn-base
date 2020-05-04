@@ -1,0 +1,114 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.Common;
+using System.Data;
+using MySql.Data.MySqlClient;
+
+//using System.Data.MySqlClient;
+using System.Data.SqlClient;
+
+
+namespace mx.lpu2020.StudentDBmanagement.DL
+{
+    public class DatabaseManager
+    {
+        private MySqlConnection con;
+        private MySqlCommand com;
+        public DatabaseManager()
+        {
+            try
+            {
+                string connectionString = "Data Source=localhost;Port = 3306;Initial Catalog=RK;User Id=root;password=''";
+                con = new MySqlConnection(connectionString);
+                con.Open();
+                com = con.CreateCommand();
+                com.CommandType = CommandType.Text;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        //It Should return list.
+        // But how will i Show them -> Grid View
+        public DataTable RetrieveData(string QueryString)
+        {
+            try
+            {
+                com = new MySqlCommand(QueryString, con);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
+                mySqlDataAdapter.SelectCommand = com;
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                mySqlDataAdapter.Update(dataTable);
+
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+        /* 
+         * ye wala Student repository me hoga
+        
+        public DbDataReader RetrieveData(string QueryString)
+        {
+            com.CommandText = QueryString;
+            DbDataReader DbReader = com.ExecuteReader();
+            return DbReader;
+        }*/
+
+
+        public int UpdateData(string QueryString)
+        {
+            try
+            {
+                com.CommandText = QueryString;                
+                return com.ExecuteNonQuery(); ;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public bool Authenticate(string username, string password)
+        {
+
+            try
+            {
+                com.CommandText = string.Format("select * from login_credential where UserName = '{0}' and Password = '{1}'", username, password);
+                com.ExecuteNonQuery();
+                DataTable datatable = new DataTable();
+                MySqlDataAdapter sqlAdapter = new MySqlDataAdapter(com);
+                //sqlAdapter.Fill(datatable);          
+                if (datatable.Rows.Count == 1)
+                {
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+   
+
+    }
+}

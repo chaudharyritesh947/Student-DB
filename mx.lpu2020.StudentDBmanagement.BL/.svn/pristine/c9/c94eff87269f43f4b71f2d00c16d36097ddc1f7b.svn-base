@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mx.lpu2020.StudentDBmanagement.BL
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Validation v = new Validation();
+            Console.Write("wHAT THA FUCK");
+            StudentRepositery sr = new StudentRepositery();
+            Console.ReadKey();
+            sr.Retrive("asc","firstname");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Student student = new Student {
+                FirstName = "Bear",
+                LastName = "Grills",
+                Email = "b.g@gmail.com",
+                City = "Delhi",
+                Gender = "Male",
+                id = "2",
+
+            };
+            var ret = sr.Update(student);
+              Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
+    }
+}

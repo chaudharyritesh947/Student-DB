@@ -1,0 +1,119 @@
+﻿using mx.lpu2020.StudentDBmanagement.BL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace StudentDBWebApi.Controllers
+{
+    
+    public class DatabaseController : ApiController
+    {
+
+        //Get data get karengey.
+        //post me data ko put karenegy.
+        //put me data ko update karengey.
+
+        StudentRepositery studentRepository = new StudentRepositery();
+
+        [Route("api/Database")]
+        [HttpGet]
+        public IEnumerable<Student> Get()
+        {
+
+            return studentRepository.Retrive();
+        }
+
+        [Route("api/Database/id")]
+        [HttpGet]
+        public IEnumerable<Student> Get(int id)
+        {
+            try
+            {
+              //  List<Student> stulist = studentRepository.Retrive(" ma ");
+                return studentRepository.Retrive(id);
+            }
+            catch (Exception e)
+            {
+                List<Student> sList = new List<Student>();
+                Student st = new Student()
+                {
+                    FirstName = "error",
+                    LastName = e.Message,
+                };
+                sList.Add(st);
+                return sList;
+            }
+        }
+
+        [Route("api/Database/index")]
+        [HttpGet]
+        public HttpResponseMessage Get(string index)
+        {
+            return Request.CreateResponse(studentRepository.Retrive(index));
+        }
+
+        [Route("api/Database/sortbycolumn")]
+        [HttpGet]
+        public HttpResponseMessage Get(string sortin, string column)
+        {
+            return Request.CreateResponse(studentRepository.Retrive(sortin,column));
+        }
+
+        [Route("api/Database/sortbycolumnindex")]
+        [HttpGet]
+        public HttpResponseMessage Get(string index, string sortin, string column)
+        {
+            return Request.CreateResponse(studentRepository.Retrive(index,sortin, column));
+        }
+
+        [Route("api/Database/Save")]
+        [HttpPost]
+        public IHttpActionResult Post(string firstname, string lastname,string email, string city,string gender)
+        {
+            try
+            {
+                Student student = new Student()
+                {
+                    FirstName=firstname,
+                    LastName=lastname,
+                    Email=email,
+                    City=city,
+                    Gender=gender,
+                };
+                studentRepository.Save(student);
+                return Ok("Success");
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Invalid !!!");
+            }
+        }
+
+        [Route("api/Database/Update")]
+        [HttpPut]
+        public IHttpActionResult Put(string firstname, string lastname, string email,string city, string gender)
+        {
+            try
+            {
+                Student student = new Student()
+                {
+                    FirstName = firstname,
+                    LastName = lastname,
+                    Email = email,
+                    City = city,
+                    Gender = gender,
+                };
+                studentRepository.Update(student);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Invalid!!!") ;
+            }
+        }
+
+    }
+}

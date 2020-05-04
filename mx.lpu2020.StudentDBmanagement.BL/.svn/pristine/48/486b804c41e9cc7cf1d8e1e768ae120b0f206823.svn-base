@@ -1,0 +1,56 @@
+﻿using mx.lpu2020.StudentDBmanagement.DL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mx.lpu2020.StudentDBmanagement.BL
+{
+   public class Validation
+    {       
+
+        public int ValidateLogin(string username, string password)
+        {
+            int IsValidate = 0;
+            if (string.IsNullOrEmpty(username) || string.IsNullOrWhiteSpace(username))
+            {
+                IsValidate = 1;
+            }
+            else if (string.IsNullOrEmpty(password) || string.IsNullOrWhiteSpace(password))
+            {
+                IsValidate = 2;
+            }
+            return IsValidate;
+        }
+
+
+        public int ValidateAddRecord(string firstname, string lastname, string email, string city, string gender)
+        {
+            int IsValidate = 0;
+            if (string.IsNullOrEmpty(firstname) || string.IsNullOrWhiteSpace(firstname))
+            {
+                IsValidate = 1;
+            }
+            else if (string.IsNullOrEmpty(lastname) || string.IsNullOrWhiteSpace(lastname))
+            {
+                IsValidate = 2;
+            }
+            else if (string.IsNullOrEmpty(email) || string.IsNullOrWhiteSpace(email))
+            {
+                IsValidate = 3;
+            }
+            else if (string.IsNullOrEmpty(city) || string.IsNullOrWhiteSpace(city))
+            {
+                IsValidate = 4;
+            }
+            else if (string.IsNullOrEmpty(gender) || string.IsNullOrWhiteSpace(gender))
+            {
+                IsValidate = 5;
+            }
+            return IsValidate;
+        }
+
+
+    }
+}
